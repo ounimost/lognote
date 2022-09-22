@@ -16,15 +16,6 @@ export const setRenderDate = (date: string) => {
 };
 
 const Home = ({ isAuth }: { isAuth: boolean }) => {
-  if (!isAuth)
-    return (
-      <main className="bg-gray-300">
-        <div className="bg-white max-w-sm m-auto p-4 min-h-screen">
-          ログインしてください。
-        </div>
-      </main>
-    );
-
   const [logList, setLogList] = useState<logPost[]>([]);
   const [editId, setEditId] = useState<string>("");
   const [editPost, setEditPost] = useState<logPost>({
@@ -43,6 +34,15 @@ const Home = ({ isAuth }: { isAuth: boolean }) => {
     };
     getPosts();
   }, []);
+
+  if (!isAuth)
+    return (
+      <main className="bg-gray-300">
+        <div className="bg-white max-w-sm m-auto p-4 min-h-screen">
+          ログインしてください。
+        </div>
+      </main>
+    );
 
   // タブのデータ
   const data = [
