@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/lognote/static/css/main.05f0a0d4.css",
+    "main.js": "/lognote/static/js/main.d4b7f47d.js",
+    "index.html": "/lognote/index.html",
+    "main.05f0a0d4.css.map": "/lognote/static/css/main.05f0a0d4.css.map",
+    "main.d4b7f47d.js.map": "/lognote/static/js/main.d4b7f47d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.05f0a0d4.css",
+    "static/js/main.d4b7f47d.js"
+  ]
+}
