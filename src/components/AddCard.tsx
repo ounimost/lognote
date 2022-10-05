@@ -21,7 +21,7 @@ const AddCard = () => {
   let hh = hour.toString();
   if (hour < 10) hh = "0" + hh;
   let mm = (Math.trunc(minute / 15) * 15).toString();
-  if (mm == "0") mm = "0" + mm;
+  if (mm === "0") mm = "0" + mm;
   const defaultTime = hh + ":" + mm;
 
   const [isInput, setIsInput] = useState<boolean>(false);
@@ -41,9 +41,9 @@ const AddCard = () => {
     let cancelRegist = false;
     if (newPost.title.length < 1) cancelRegist = true;
     if (newPost.log.length < 1) cancelRegist = true;
-    if (newPost.date.split("-").length != 3) cancelRegist = true;
-    if (newPost.start.split(":").length != 2) cancelRegist = true;
-    if (newPost.end.split(":").length != 2) cancelRegist = true;
+    if (newPost.date.split("-").length !== 3) cancelRegist = true;
+    if (newPost.start.split(":").length !== 2) cancelRegist = true;
+    if (newPost.end.split(":").length !== 2) cancelRegist = true;
     setIsNg(cancelRegist);
     if (cancelRegist) return;
 
@@ -62,7 +62,7 @@ const AddCard = () => {
     if (tt < 10) ttt = "0" + ttt;
     const mm = (i % 4) * 15;
     let mmm = mm.toString();
-    if (mm == 0) mmm = "0" + mmm;
+    if (mm === 0) mmm = "0" + mmm;
     const timeStr = ttt + ":" + mmm;
     timeArr.push(timeStr);
   }

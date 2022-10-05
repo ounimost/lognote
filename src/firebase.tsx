@@ -1,5 +1,4 @@
 import { initializeApp } from "firebase/app";
-//import { getAnalytics } from "firebase/analytics";
 import { getAuth, GoogleAuthProvider } from "firebase/auth";
 import {
   addDoc,
@@ -18,17 +17,16 @@ import {
 import { isLocalStorage } from "./App";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCcl9KgZiNPqb8D_590YfzHAjpcNvuYGSM",
-  authDomain: "lognote-dcc7c.firebaseapp.com",
-  projectId: "lognote-dcc7c",
-  storageBucket: "lognote-dcc7c.appspot.com",
-  messagingSenderId: "299240724918",
-  appId: "1:299240724918:web:9e22d7141c0828b484c917",
-  measurementId: "G-V6EF1B7Z23",
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_FIREBASE_APP_ID,
+  measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID,
 };
 
 const app = initializeApp(firebaseConfig);
-//const analytics = getAnalytics(app);
 const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
 const db = getFirestore(app);
@@ -85,7 +83,7 @@ const updateLog = async (post: logPost) => {
 
     // idが一致する要素を削除して、更新する要素を追加する
     posts = posts.filter(function (x: logPost) {
-      return !(x.id == post.id);
+      return !(x.id === post.id);
     });
     posts[posts.length] = post;
     localStorage.setItem("posts", JSON.stringify(posts));
@@ -114,7 +112,7 @@ const deleteLog = async (post_id: string) => {
 
     // idが一致する要素を削除して、保存する
     posts = posts.filter(function (x: logPost) {
-      return !(x.id == post_id);
+      return !(x.id === post_id);
     });
     localStorage.setItem("posts", JSON.stringify(posts));
   }

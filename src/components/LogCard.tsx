@@ -24,15 +24,15 @@ const LogCard = (
     window.location.href = "/lognote";
   };
 
-  const isEdit = post.id == editId;
+  const isEdit = post.id === editId;
 
-  if (isEdit && post.title != editPost.title) {
+  if (isEdit && post.title !== editPost.title) {
     const tmpPost = post;
     setEditPost(tmpPost);
   }
 
   let isRenderDate = false;
-  if (gRenderDate != post.date) {
+  if (gRenderDate !== post.date) {
     isRenderDate = true;
     setRenderDate(post.date);
   }

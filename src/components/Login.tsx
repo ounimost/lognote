@@ -9,7 +9,8 @@ function Login({ setIsAuth }: { setIsAuth: (arg: boolean) => void }) {
 
   const loginWithGoogle = () => {
     signInWithPopup(auth, provider).then((result) => {
-      if (result.user.email == "ounimost@gmail.com") {
+      console.log(process.env.REACT_APP_AUTH_UID);
+      if (result.user.uid === process.env.REACT_APP_AUTH_UID) {
         localStorage.setItem("isAuth", "true");
         setIsAuth(true);
       }

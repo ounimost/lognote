@@ -140,7 +140,7 @@ const Home = ({ isAuth }: { isAuth: boolean }) => {
                 {logList
                   .filter((log) => {
                     const tmpDate = getDateFromStr(log.date, 0, 0, 0);
-                    return tmpDate.getTime() == todayDate.getTime();
+                    return tmpDate.getTime() === todayDate.getTime();
                   })
                   .sort(sortDateDown)
                   .map((log) =>
@@ -158,7 +158,7 @@ const Home = ({ isAuth }: { isAuth: boolean }) => {
                 {logList
                   .filter((log) => {
                     const tmpDate = getDateFromStr(log.date, 0, 0, -1);
-                    return tmpDate.getTime() == todayDate.getTime();
+                    return tmpDate.getTime() === todayDate.getTime();
                   })
                   .sort(sortDateDown)
                   .map((log) =>
