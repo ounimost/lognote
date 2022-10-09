@@ -3,6 +3,7 @@ import { Alert, Button, Card, Input, Textarea } from "@material-tailwind/react";
 import React, { useState } from "react";
 import { faXmark, faPlus } from "@fortawesome/free-solid-svg-icons";
 import { createLog, logPost } from "../firebase";
+import { baseUrl } from "../App";
 
 // inputに設定するための今日の日付を文字列で取得する
 const getTodayStr = () => {
@@ -51,7 +52,7 @@ const AddCard = () => {
     await createLog(newPost);
 
     // 再読み込み
-    window.location.href = "/lognote";
+    window.location.href = baseUrl;
   };
 
   // 時間の配列を用意しておく

@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPen, faTrash, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { deleteLog, logPost, updateLog } from "../firebase";
 import { gRenderDate, setRenderDate } from "./Home";
+import { baseUrl } from "../App";
 
 const LogCard = (
   post: logPost,
@@ -16,12 +17,12 @@ const LogCard = (
   // ログ削除
   const handleDelete = async (post_id: string) => {
     await deleteLog(post_id);
-    window.location.href = "/lognote";
+    window.location.href = baseUrl;
   };
 
   const handleUpdate = async (editPost: logPost) => {
     await updateLog(editPost);
-    window.location.href = "/lognote";
+    window.location.href = baseUrl;
   };
 
   const isEdit = post.id === editId;
