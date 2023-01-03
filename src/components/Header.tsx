@@ -22,7 +22,7 @@ function Header({ isAuth }: { isAuth: boolean }) {
           </Link>
           <Link className="text-white mx-2" to="/help">
             <FontAwesomeIcon className="mx-2" icon={faCircleQuestion} />
-            <span className="text-xs">Help</span>
+            <span className="text-xs">About</span>
           </Link>
         </nav>
       </header>
