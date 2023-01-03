@@ -5,6 +5,7 @@ import { faPen, faTrash, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { deleteLog, logPost, updateLog } from "../firebase";
 import { gRenderDate, setRenderDate } from "./Home";
 import { baseUrl } from "../App";
+import Linkify from "linkify-react";
 
 const LogCard = (
   post: logPost,
@@ -37,6 +38,14 @@ const LogCard = (
     isRenderDate = true;
     setRenderDate(post.date);
   }
+
+  // linkify
+  const linkifyOptions = {
+    className: "text-blue-400",
+    target: {
+      url: "_blank",
+    },
+  };
 
   return !isEdit ? (
     <div key={"div" + tab + post.id}>
@@ -75,7 +84,9 @@ const LogCard = (
           {post.start}-{post.end}
         </div>
         <div className="text-gray-700 text-sm whitespace-pre-wrap">
-          {post.log}
+          <Linkify as="p" options={linkifyOptions}>
+            {post.log}
+          </Linkify>
         </div>
       </Card>
     </div>
